@@ -1,0 +1,7 @@
+- name: Print Parameter from AWS Patameter store
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Print Parameter
+      ansible.builtin.debug:
+        msg: Parameter - {{ lookup('amazon.aws.aws_ssm', 'test.test', region='us-east-1') }}
